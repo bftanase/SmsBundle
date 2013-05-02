@@ -1,0 +1,7 @@
+parameters:
+#    btanase_sms.example.class: Btanase\SmsBundle\Example
+
+services:
+#    btanase_sms.example:
+#        class: %btanase_sms.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
