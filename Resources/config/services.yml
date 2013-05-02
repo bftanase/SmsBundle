@@ -1,7 +1,13 @@
 parameters:
-#    btanase_sms.example.class: Btanase\SmsBundle\Example
+    btanase_sms.sms_service.class: Btanase\SmsBundle\Service\SmsService
 
 services:
-#    btanase_sms.example:
-#        class: %btanase_sms.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    btanase_sms.dummy_provider:
+        class: Btanase\SmsBundle\Service\DummySmsProvider
+        arguments:
+            apiKey: "%btanase_sms.api_key%"
+            postUrl: "%btanase_sms.post_url%"
+    btanase_sms.sms_service:
+        class: "%btanase_sms.sms_service.class%"
+        arguments: ["@btanase_sms.provider"]
+
