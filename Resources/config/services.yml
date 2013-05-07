@@ -7,6 +7,17 @@ services:
         arguments:
             apiKey: "%btanase_sms.api_key%"
             postUrl: "%btanase_sms.post_url%"
+            logger: '@logger'
+
+    btanase_sms.netopia_provider:
+        class: Btanase\SmsBundle\Service\NetopiaSmsProvider
+        arguments:
+            username: "%btanase_sms.username%"
+            apiKey: "%btanase_sms.api_key%"
+            from: "%btanase_sms.from%"
+            postUrl: "%btanase_sms.post_url%"
+            logger: '@logger'
+
     btanase_sms.sms_service:
         class: "%btanase_sms.sms_service.class%"
         arguments: ["@btanase_sms.provider"]
